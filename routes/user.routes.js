@@ -11,9 +11,10 @@ const jwt = require('jsonwebtoken');
 //     res.send('user test route')
 // })
 
-router.get('/register', (req, res) => {
-    res.render('register');
-})
+// router.get('/register', (req, res) => {
+//     res.render('register');
+// });
+
 
 router.post('/register',
     body('email').trim().isEmail().isLength({ min: 10}),

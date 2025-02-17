@@ -19,6 +19,17 @@ app.use('/', indexRouter)
 app.use('/user', userRouter)
 
 
-app.listen(3000, () => {
-    console.log('server is running on port 3000')
+const path = require('path');
+
+app.set('views', path.resolve('./views'));  // Correct path to views folder
+app.set('view engine', 'ejs');
+
+app.get("/", async (req, res) => {
+    res.render('register');
+})
+
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`)
 })
